@@ -5,7 +5,26 @@
 -- automatically pick-up stored data by this setting.)
 return {
   -- first key is the mode
+  v = {
+    ["<leader>7"] = {
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+      desc = "Toggle comment for selection",
+    }
+  },
   n = {
+    ["+b"] = { 
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, 
+      desc = "Next buffer" 
+    },
+    ["-b"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+
+    ["<leader>7"] = {
+      function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Toggle comment line",
+    },
     -- second key is the lefthand side of the map
 
     -- navigate buffer tabs with `H` and `L`
