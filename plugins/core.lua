@@ -20,6 +20,7 @@ return {
       return opts
     end,
   },
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
